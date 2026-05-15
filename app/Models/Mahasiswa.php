@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Mahasiswa extends Model
+{
+    protected $table = 'mahasiswa';
+
+    protected $fillable = [
+        'user_id',
+        'prodi_id',
+        'nim',
+        'nama_lengkap',
+        'angkatan',
+        'no_hp',
+        'alamat',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function prodi()
+    {
+        return $this->belongsTo(Prodi::class);
+    }
+}
